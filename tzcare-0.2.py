@@ -2,7 +2,7 @@ import smartpy as sp
 
 class Tzcare(sp.Contract):
     def __init__(self, initialOwner):
-        self.init(owner = initialOwner, user = initialOwner, device_alert = "48.8642.34900001", amount_to_stack = sp.tez(10))
+        self.init(owner = initialOwner, user = initialOwner, device_alert = "XXXXXXYYYYYYZZZZ", amount_to_stack = sp.tez(10))
 
     @sp.entry_point
     def setAlert(self, params):
@@ -22,11 +22,11 @@ def test():
     scenario = sp.test_scenario()
     scenario.h1("Alert Test")
 
-    c1 = Tzcare(sp.address("tz1Q7ET8e4HdK2u7qAuVkYpnXh7caX2rVdCi"))
+    c1 = Tzcare(sp.address("tz1XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"))
     scenario += c1
     scenario.h2("Update Alert")
     scenario += c1.setAlert("AAAAAABBBBBBCCCC").run(amount = sp.tez(10))
     
     scenario.h2("Unlock Amount")
-    scenario += c1.unlockAmount(sp.address("tz1WW8GufzWJspUb6SsdHCcTsyeFjegN7hUU")).run(sender = sp.address("tz1Q7ET8e4HdK2u7qAuVkYpnXh7caX2rVdCi"))
+    scenario += c1.unlockAmount(sp.address("tz1YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")).run(sender = sp.address("tz1XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"))
     
